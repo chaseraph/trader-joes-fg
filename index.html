@@ -73,15 +73,12 @@
         }
 
         .the-answer {
-            font-size: clamp(4rem, 20vw, 16rem);
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.5);
             color: #ff3b3b;
-            transition: opacity 0.15s;
-            word-break: break-word;
-            overflow-wrap: break-word;
+            white-space: nowrap;
             max-width: 100%;
             padding: 0 0.5rem;
         }
@@ -223,12 +220,25 @@
             "OK but seriously",
         ];
 
+        function fitText() {
+            const el = document.getElementById('mainNo');
+            const container = document.querySelector('.container');
+            const maxW = container.clientWidth - 32;
+            let size = 160;
+            el.style.fontSize = size + 'px';
+            while (el.scrollWidth > maxW && size > 30) {
+                size -= 4;
+                el.style.fontSize = size + 'px';
+            }
+        }
+
         function handleDoubt() {
             const el = document.getElementById('mainNo');
             const btn = document.getElementById('doubtBtn');
 
             el.textContent = answers[clickCount % answers.length];
             btn.textContent = questions[clickCount % questions.length];
+            fitText();
 
             el.classList.remove('shake');
             void el.offsetWidth;
@@ -236,6 +246,9 @@
 
             clickCount++;
         }
+
+        fitText();
+        window.addEventListener('resize', fitText);
     </script>
 </body>
 </html>
