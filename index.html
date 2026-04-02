@@ -76,6 +76,7 @@
             margin-bottom: 1.5rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.5);
             color: #ff3b3b;
+            transition: opacity 0.15s;
         }
 
         .doubt-btn {
@@ -98,13 +99,7 @@
             background: rgba(255,255,255,0.08);
         }
 
-        .still-no {
-            display: none;
-            font-size: clamp(5rem, 18vw, 12rem);
-            font-weight: 900;
-            color: #ff3b3b;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            margin-bottom: 1.5rem;
+        .shake {
             animation: shake 0.5s ease-in-out;
         }
 
@@ -180,10 +175,8 @@
         <div class="the-answer" id="mainNo">NO.</div>
 
         <button class="doubt-btn" id="doubtBtn" onclick="handleDoubt()">
-            Are you sure? Really? But I really want one / my cousin heard it was coming
+            Are you sure?
         </button>
-
-        <div class="still-no" id="stillNo">STILL NO.</div>
 
         <div class="subscribe-section">
             <a class="subscribe-btn" href="https://www.newsinthegrove.com/#/portal/signup">
@@ -200,7 +193,8 @@
 
     <script>
         let clickCount = 0;
-        const responses = [
+
+        const answers = [
             "STILL NO.",
             "NOPE.",
             "NOT HAPPENING.",
@@ -211,14 +205,29 @@
             "ASK AGAIN NEVER.",
         ];
 
+        const questions = [
+            "Really?",
+            "But I really want one",
+            "My cousin heard it was coming",
+            "What about a Costco?",
+            "But what if they just haven\u2019t announced it yet?",
+            "I saw it on Facebook though",
+            "Are you sure you're sure?",
+            "OK but seriously",
+        ];
+
         function handleDoubt() {
-            clickCount++;
-            const el = document.getElementById('stillNo');
-            el.textContent = responses[Math.min(clickCount - 1, responses.length - 1)];
-            el.style.display = 'block';
-            el.style.animation = 'none';
+            const el = document.getElementById('mainNo');
+            const btn = document.getElementById('doubtBtn');
+
+            el.textContent = answers[clickCount % answers.length];
+            btn.textContent = questions[clickCount % questions.length];
+
+            el.classList.remove('shake');
             void el.offsetWidth;
-            el.style.animation = 'shake 0.5s ease-in-out';
+            el.classList.add('shake');
+
+            clickCount++;
         }
     </script>
 </body>
