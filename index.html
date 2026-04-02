@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Forest Grove Getting a Trader Joe's?</title>
+    <meta name="description" content="Is Forest Grove, Oregon getting a Trader Joe's? Find out here.">
+    <meta property="og:title" content="Is Forest Grove Getting a Trader Joe's?">
+    <meta property="og:description" content="The definitive answer to the question everyone keeps asking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://isforestgrovegettingatraderjoes.newsinthegrove.com">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0.85;
+        }
+
+        .the-answer {
+            font-size: clamp(8rem, 25vw, 16rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            color: #ff3b3b;
+        }
+
+        .doubt-btn {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.7);
+            padding: 0.7rem 1.5rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 2.5rem;
+            max-width: 400px;
+            line-height: 1.4;
+        }
+
+        .doubt-btn:hover {
+            border-color: rgba(255,255,255,0.6);
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .still-no {
+            display: none;
+            font-size: clamp(5rem, 18vw, 12rem);
+            font-weight: 900;
+            color: #ff3b3b;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-15px) rotate(-2deg); }
+            40% { transform: translateX(15px) rotate(2deg); }
+            60% { transform: translateX(-10px) rotate(-1deg); }
+            80% { transform: translateX(10px) rotate(1deg); }
+        }
+
+        .subscribe-section {
+            margin-top: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .subscribe-btn {
+            display: inline-block;
+            background: #c41200;
+            color: #fff;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            line-height: 1.4;
+            max-width: 420px;
+        }
+
+        .subscribe-btn:hover {
+            background: #a01000;
+            transform: translateY(-1px);
+        }
+
+        .subscribe-btn:active {
+            transform: translateY(0);
+        }
+
+        .credit {
+            position: fixed;
+            bottom: 0.75rem;
+            right: 1rem;
+            font-size: 0.7rem;
+            opacity: 0.45;
+            color: #fff;
+        }
+
+        .credit a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .nitg-link {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        .nitg-link a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <h1>Is Forest Grove getting a Trader Joe&rsquo;s?</h1>
+
+        <div class="the-answer" id="mainNo">NO.</div>
+
+        <button class="doubt-btn" id="doubtBtn" onclick="handleDoubt()">
+            Are you sure? Really? But I really want one / my cousin heard it was coming
+        </button>
+
+        <div class="still-no" id="stillNo">STILL NO.</div>
+
+        <div class="subscribe-section">
+            <a class="subscribe-btn" href="https://www.newsinthegrove.com/#/portal/signup">
+                Get notified if a Trader Joe&rsquo;s ever comes to Forest Grove by subscribing to News in the Grove
+            </a>
+
+            <div class="nitg-link">
+                <a href="https://www.newsinthegrove.com">newsinthegrove.com</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="credit">Photo: Harrison Keely <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></div>
+
+    <script>
+        let clickCount = 0;
+        const responses = [
+            "STILL NO.",
+            "NOPE.",
+            "NOT HAPPENING.",
+            "NO. STOP.",
+            "N-O.",
+            "ABSOLUTELY NOT.",
+            "LOL NO.",
+            "ASK AGAIN NEVER.",
+        ];
+
+        function handleDoubt() {
+            clickCount++;
+            const el = document.getElementById('stillNo');
+            el.textContent = responses[Math.min(clickCount - 1, responses.length - 1)];
+            el.style.display = 'block';
+            el.style.animation = 'none';
+            void el.offsetWidth;
+            el.style.animation = 'shake 0.5s ease-in-out';
+        }
+    </script>
+</body>
+</html>
