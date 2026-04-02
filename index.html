@@ -60,8 +60,10 @@
         }
 
         .container {
-            padding: 2rem;
+            padding: 1rem;
             max-width: 700px;
+            width: 100%;
+            overflow: hidden;
         }
 
         h1 {
@@ -224,7 +226,7 @@
         function fitText() {
             const el = document.getElementById('mainNo');
             const container = document.querySelector('.container');
-            const maxW = container.clientWidth - 32;
+            const maxW = container.clientWidth - 16;
             let size = 160;
             el.style.fontSize = size + 'px';
             while (el.scrollWidth > maxW && size > 30) {
